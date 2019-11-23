@@ -31,6 +31,6 @@ impl FromBytes for u8
     #[inline(always)]
     fn read_from_bytes(bytes: &[u8], count : &mut usize) -> u8
     {
-        u8::from_be_bytes([bytes[*count]])
+        bytes[*count]
     }
 }

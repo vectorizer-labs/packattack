@@ -9,9 +9,9 @@ use super::*;
 impl FromByte for bool
 {
     #[inline(always)]
-    fn read_from_byte(byte : &u8, mask : u8) -> bool
+    fn read_from_byte(byte : &u8, start_index : u8) -> bool
     {
-        (byte & mask) != 0
+        (byte & (<bool>::bitmask >> start_index)) != 0
     }
     
     const bitmask : u8 = 0b10000000;

@@ -8,7 +8,7 @@ pub trait FromBytes: Sized
 
 pub trait FromByte: Sized
 {
-    fn read_from_byte(byte : &u8, mask : u8) -> Self;
+    fn read_from_byte(byte : &u8, start_index : u8) -> Self;
 
     const bitmask : u8;
     const size_in_bits: u8;
