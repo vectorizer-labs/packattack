@@ -3,9 +3,13 @@ name = "packattack"
 version = "0.1.0"
 authors = ["Ethan Spurlock <ethan@spurlock.io>"]
 edition = "2018"
+description = "A parser-combinator library for writing concise and safe binary parsers."
+license = "MIT"
+keywords = ["read","async", "BufReader", "binary"]
+repository = "https://github.com/vectorizer-labs/packattack"
 
 [dependencies]
-bitreader_async = { path = "C:\\Users\\Ethan\\Desktop\\bitreader-async" }
+bitreader_async = "0.2.0"
 
 [dependencies.async-std]
 version = "1.2.0"
