@@ -18,3 +18,6 @@ features = ["attributes"]
 
 [dependencies.async-trait]
 version = "0.1.21"
+
+[dependencies.failure]
+version = "0.1.6"
