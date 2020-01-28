@@ -2,7 +2,8 @@ pub use
 {
     async_trait::async_trait,
     async_std::io::Read,
-    async_std::prelude::*
+    async_std::prelude::*,
+    std::convert::TryInto
 };
 
 #[async_trait]
