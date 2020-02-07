@@ -1,38 +1,19 @@
-pub trait Bitsize
-{
-    const SIZE_IN_BITS : usize = 0;
-}
+use super::*;
 
-pub trait FromBytes<E, B> : Sized + Bitsize
+pub trait FromBytes<E, B> : Sized + Bytesize
 {
     fn from_bytes(bytes : B) -> std::result::Result<Self, E>;
 }
 
-impl Bitsize for bool 
-{ 
-    const SIZE_IN_BITS : usize = 1; 
-}
-
-impl FromBytes<(), [u8; 1]> for bool
+impl Bytesize for () 
 {
-    #[inline]
-    fn from_bytes(bytes : [u8; 1]) -> std::result::Result<Self, ()> { Ok(bytes[0] != 0) }
-}
-
-impl Bitsize for () 
-{
-    const SIZE_IN_BITS : usize = 8; 
+    const SIZE_IN_BYTES : usize = 1; 
 }
 
 impl FromBytes<(), [u8; 1]> for ()
 {
     #[inline]
     fn from_bytes(_byte : [u8; 1]) -> std::result::Result<Self, ()> { Ok(()) }
-} 
-
-impl<T> Bitsize for Vec<T> 
-{
-    const SIZE_IN_BITS : usize = 0; 
 }
 
 impl FromBytes<(), &mut &[u8]> for Vec<u8> where Self : Sized
