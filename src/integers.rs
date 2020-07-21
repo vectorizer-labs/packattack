@@ -1,5 +1,6 @@
 use std::mem::size_of;
 use super::from_bytes::*;
+use super::Bitsize;
 
 //Default implementations of from bytes for integers 
 //BigEndian only

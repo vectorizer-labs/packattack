@@ -13,5 +13,5 @@ impl Bitsize for bool
 impl FromBits<()> for bool
 {
     #[inline]
-    fn from_bits(byte : u8) -> std::result::Result<Self, E>; { Ok(byte != 0) }
+    fn from_bits(byte : u8) -> std::result::Result<Self, ()> { Ok(byte != 0) }
 }

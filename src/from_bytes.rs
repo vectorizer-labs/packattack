@@ -1,19 +1,24 @@
 use super::*;
 
-pub trait FromBytes<E, B> : Sized + Bytesize
+pub trait FromBytes<E, B> : Sized + Bitsize
 {
     fn from_bytes(bytes : B) -> std::result::Result<Self, E>;
 }
 
-impl Bytesize for () 
+impl Bitsize for () 
 {
-    const SIZE_IN_BYTES : usize = 1; 
+    const SIZE_IN_BITS : usize = 8; 
 }
 
 impl FromBytes<(), [u8; 1]> for ()
 {
     #[inline]
     fn from_bytes(_byte : [u8; 1]) -> std::result::Result<Self, ()> { Ok(()) }
+}
+
+impl Bitsize for Vec<u8>
+{
+    const SIZE_IN_BITS : usize = 0;
 }
 
 impl FromBytes<(), &mut &[u8]> for Vec<u8> where Self : Sized
